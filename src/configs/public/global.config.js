@@ -1,5 +1,3 @@
-export default class GlobalConfig {
-  constructor () {
-    this.name = 'PollLabs'
-  }
+export const globalConfig = {
+  name: 'PollLabs'
 }

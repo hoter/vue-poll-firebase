@@ -4,12 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
-import FirebaseConfig from '@/configs/private/firebase.config.js'
+import {firebaseConfig} from '@/configs/private/firebase.config.js'
 
 Vue.config.productionTip = false
 
-const firebaseConfig = new FirebaseConfig()
-firebase.initializeApp(firebaseConfig.config)
+firebase.initializeApp(firebaseConfig)
 
 /* eslint-disable no-new */
 new Vue({

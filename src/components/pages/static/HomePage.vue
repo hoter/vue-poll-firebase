@@ -3,8 +3,7 @@
 </template>
 
 <script>
-  import GlobalConfig from '@/configs/public/global.config.js'
-  const globalConfig = new GlobalConfig()
+  import {globalConfig} from '@/configs/public/global.config.js'
 
   export default {
     data () {
