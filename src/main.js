@@ -8,12 +8,17 @@ import {firebaseConfig} from '@/configs/private/firebase.config.js'
 
 Vue.config.productionTip = false
 
-firebase.initializeApp(firebaseConfig)
+// Don't initialize the app until firebase callback is fired
+const unsubscribe = firebase.initializeApp(firebaseConfig).auth().onAuthStateChanged(() => {
+  /* eslint-disable no-new */
+  new Vue({
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
+  })
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+  // remove this listener so that we aren't trying to make new vue objects
+  // every time the auth state changes.
+  unsubscribe()
 })
