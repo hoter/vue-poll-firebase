@@ -1,6 +1,7 @@
 <template>
   <nav id="main-menu">
-    <router-link to="login">Sign In</router-link>
+    <router-link to="login" v-if="!currentUser">Sign In</router-link>
+    <a href="#" @click="logout" v-if="currentUser">Sign Out</a>
   </nav>
 </template>
 
