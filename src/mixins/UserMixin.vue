@@ -6,7 +6,7 @@
       login: function () {
         firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
           function (user) {
-            console.log('Created')
+            this.$router.replace('hello')
           },
           function (err) {
             console.log(err.message)
