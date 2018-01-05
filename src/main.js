@@ -9,6 +9,8 @@ import {firebaseConfig} from '@/configs/private/firebase.config.js'
 Vue.config.productionTip = false
 
 // Don't initialize the app until firebase callback is fired
+// There might a problem with server side rendering or prerendering
+// Maybe will have to use timeout
 const unsubscribe = firebase.initializeApp(firebaseConfig).auth().onAuthStateChanged(() => {
   /* eslint-disable no-new */
   new Vue({
