@@ -6,6 +6,7 @@ import SignUp from '@/components/forms/SignUp'
 import HomePage from '@/components/pages/static/HomePage.vue'
 import UserMixin from '@/mixins/UserMixin.vue'
 import Projects from '@/components/projects/Index'
+import Project from '@/components/projects/Project'
 import AddProjectForm from '@/components/projects/AddProjectForm'
 
 Vue.use(Router)
@@ -32,6 +33,15 @@ const router = new Router({
       path: '/projects',
       name: 'projects',
       component: Projects,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/projects/:name',
+      name: 'project',
+      component: Project,
+      props: true,
       meta: {
         requiresAuth: true
       }

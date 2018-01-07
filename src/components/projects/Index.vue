@@ -2,8 +2,8 @@
   <div id="projects">
     <router-link to="/projects/add">Add a new project</router-link>
     <ol class="project-list">
-      <li v-for="project in projects">
-        {{ project.title }}
+      <li v-for="(project, name) in projects">
+        <router-link :to="{ name: 'project', params: { name: name }}">{{ project.title }}</router-link>
       </li>
     </ol>
   </div>
